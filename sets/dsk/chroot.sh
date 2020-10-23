@@ -7,7 +7,6 @@
 # because the system has to be in a very prepared state for the
 # installer to work
 
-PKG_LIST=pkg.lst
 
 echo "[$0] 2ND STAGE INSTALLER"
 
@@ -16,7 +15,7 @@ source /etc/profile
 echo "[$0] UPDATING PORTAGE TREE & WORLD"
 
 emerge-webrsync
-emerge --ask --verbose --update --deep --newuse @world
+emerge --ask --verbose --update --deep --newuse @world >> /install.log
 
 echo "[$0] 2ND STAGE CONFIGURATION"
 
@@ -29,12 +28,24 @@ locale-gen
 eselect locale set en_US.uft8
 env-update 
 source /etc/profile
+echo "sys-kernel/linux-firmware linux-fw-redistributable no-source-code" >> /etc/portage/package.license
 
 echo "[$0] INSTALLING SYSTEM PACKAGES"
 
-emerge ${cat pkg.lst}
+emerge ${cat pkg.lst | tr "\n" " "} >> /install.log
 
+echo "[$0] KERNEL"
 
+genkernel all
+
+echo "[$0] GRUB"
+
+grub-install --target=efi-64 --efi-directory=/boot
+grub-mkconfig -o /boot/grub/grub.cfg
+
+echo "[$0] PASSWORD"
+
+passwd
 
 
 

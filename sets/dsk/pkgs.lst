@@ -1,3 +1,7 @@
+sys-kernel/gentoo-sources
+sys-kernel/genkernel
+sys-kernel/linux-firmware
+
 app-editors/vim
 app-admin/metalog
 app-admin/doas
@@ -7,7 +11,6 @@ net-misc/dhcpcd
 net-vpn/tor
 dev-vcs/git
 www-clients/lynx
-
 
 x11-base/xorg-server
 x11-wm/bspwm
