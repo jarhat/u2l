@@ -1,4 +1,25 @@
 app-editors/vim
+app-admin/metalog
+app-admin/doas
+app-crypt/chntpw
 net-misc/openssh
+net-misc/dhcpcd
+net-vpn/tor
+dev-vcs/git
+www-clients/lynx
+
+
+x11-base/xorg-server
+x11-wm/bspwm
+x11-apps/xset
+x11-apps/xrandr
+x11-misc/xclip
+x11-misc/dmenu
+x11-misc/polybar
+x11-misc/sxhkd
+x11-terms/rxvt-unicode
+
+media-gfx/feh
 app-emulation/qemu
+www-clients/firefox
 
