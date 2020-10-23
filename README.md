@@ -1,6 +1,6 @@
-# The Urban Tool [utool]
+# The Urban Tool
 
-	utool is a gentoo "distribution" aimed at providing a sysadmin tool thats
+	u2l is a gentoo "distribution" aimed at providing a sysadmin tool thats
 
 	1. already setup the way @askdonjohn and/or you wants
 	2. easy to deploy
@@ -9,7 +9,7 @@
 
 ## The Start
 
-	utool is [atm] a script that installs gentoo with custom pkgs and 
+	u2l is [atm] a script that installs gentoo with custom pkgs and 
 	basic configuration files.
 
 ## The Goal

@@ -1,4 +1,4 @@
-# utool Sets
+# u2l Sets
 
 	Sets are bundled configuration options.
 
@@ -13,4 +13,7 @@
 
 ## Important Files inside the Sets
 
+	chroot.sh - The installer script that runs in the chrooted enviroment
 	pkgs.lst - Lists the pkgs that will be installed
+	make.conf - The Portage make file
+
