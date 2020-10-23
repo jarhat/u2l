@@ -4,29 +4,35 @@
 
 # Assumes the Target is already mounted like in production
 
-CHROOT_INSTALL=chroot_install.sh
-TARBALL=files/stage3*
 TARGET=/mnt/gentoo
 
 echo "[$0] URBAN TOOL INSTALLER"
 
 echo "[SETS] dsk, srv or usb ?"
 read SETTINGS
-PKG_LIST=sets/$SETTINGS/pkg.lst
+
+USET=sets/$SETTINGS
 
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
-cp $CHROOT_INSTALl $TARGET
-cp $PKG_LIST $TARGET/pkg.lst
+cp $USET/chroot.sh $TARGET
+cp $USET/pkg.lst $TARGET
+cp -f $USET/make.conf $TARGET/etc/portage/
 
 echo "[$0] EXTRACTING BASE SYSTEM"
 
-tar xpvf $TARBALL --xattrs-include='*.*' --numeric-owner -C $TARGET
+tar xpvf $USET/stage3* --xattrs-include='*.*' --numeric-owner -C $TARGET
  
 echo "[$0] 1ST STAGE CONFIGURATION"
 
 # Adjust System Clock [leaks ip]
 ntpd -q -g
+
+# Copying portage net info
+mkdir -p $TARGET/etc/portage/repos.conf
+cp $TARGET/usr/share/portage/config/repos.conf $TARGET/etc/portage/repos.conf/gentoo.conf
+
+cp --dereference /etc/resolv.conf $TARGET/etc/resolv.conf
 
 mount --types proc /proc $TARGET/proc
 mount --rbind /sys $TARGET/sys
@@ -36,25 +42,15 @@ mount --make-rslave $TARGET/dev
 
 echo "[$0] CHROOTING"
 
-chroot $TARGET $CHROOT_INSTALL
+chroot $TARGET chroot.sh
 
 echo "[$0] EXITING CHROOT"
 
-
+umount -l $TARGET/dev{/shm,/pts,}
+umount -R $TARGET{/proc,/sys}
 
 echo "[$0] REMOVING INSTALLER FILES"
 
-rm $TARGET/stage3*
+rm $TARGET/chroot.sh
 rm $TARGET/pkg.lst
-
-
-
-
-
-
-
-
-
-
-
 
