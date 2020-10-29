@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-# The utool installer 1st stage
+# The u2l installer 1st stage
 
 # Assumes the Target is already mounted like in production
 
@@ -11,16 +11,19 @@ echo "[$0] U2L INSTALLER"
 echo "[USER] Enter the set you want to install [dsk]"
 read SETTINGS
 
-if [ -n $SETTINGS]
+if [ -z $SETTINGS ]
 then
 	SETTINGS=dsk
 fi
 
 USET=sets/$SETTINGS
 
-if [ ![ -d $USET]]
+echo "[$0] USING SET $USET"
+
+if [ ! -d $USET ]
 then
 	echo "[ERROR] Could not find $USET"
+	exit 1
 fi
 
 echo "[$0] COPYING INSTALLER FILES TO DISK"
