@@ -32,6 +32,11 @@ ntpd -q -g
 mkdir -p $TARGET/etc/portage/repos.conf
 cp $TARGET/usr/share/portage/config/repos.conf $TARGET/etc/portage/repos.conf/gentoo.conf
 
+./genfstab.sh $TARGET
+cat fstab.gen >> $TARGET/etc/fstab
+
+echo "[$0] CHROOTING"
+
 cp --dereference /etc/resolv.conf $TARGET/etc/resolv.conf
 
 mount --types proc /proc $TARGET/proc
@@ -39,8 +44,6 @@ mount --rbind /sys $TARGET/sys
 mount --make-rslave $TARGET/sys
 mount --rbind /dev $TARGET/dev
 mount --make-rslave $TARGET/dev 
-
-echo "[$0] CHROOTING"
 
 chroot $TARGET chroot.sh
 
