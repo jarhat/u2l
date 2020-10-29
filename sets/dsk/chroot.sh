@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# The utool installer 2nd stage (chroot)
+# The u2l installer 2nd stage (chroot)
 
 # !!!!!!!!!!!!!!!!!!!
 # Not to start on your own this will be handled by 1st stage installer
@@ -32,7 +32,7 @@ echo "sys-kernel/linux-firmware linux-fw-redistributable no-source-code" >> /etc
 
 echo "[$0] INSTALLING SYSTEM PACKAGES"
 
-emerge ${cat pkg.lst | tr "\n" " "} >> /install.log
+emerge $(cat pkg.lst | tr "\n" " ") >> /install.log
 
 echo "[$0] KERNEL"
 
@@ -44,6 +44,7 @@ grub-install --target=efi-64 --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
 
 echo "[$0] PASSWORD"
+echo "[USER] Enter root password"
 
 passwd
 

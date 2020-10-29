@@ -6,12 +6,22 @@
 
 TARGET=/mnt/gentoo
 
-echo "[$0] URBAN TOOL INSTALLER"
+echo "[$0] U2L INSTALLER"
 
-echo "[SETS] dsk, srv or usb ?"
+echo "[USER] Enter the set you want to install [dsk]"
 read SETTINGS
 
+if [ -n $SETTINGS]
+then
+	SETTINGS=dsk
+fi
+
 USET=sets/$SETTINGS
+
+if [ ![ -d $USET]]
+then
+	echo "[ERROR] Could not find $USET"
+fi
 
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
