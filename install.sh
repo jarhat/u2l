@@ -26,7 +26,7 @@ then
 	exit 1
 fi
 
-if [ ! -e $USET/stages/stage3* ]
+if [ ! -e $USET/stages/stage3*.tar.xz ]
 then
 	echo "[WARNING] Can\'t find stage3 tarball, now downloading"
 	./dl-stage.sh $USET/stages/ || exit 1
@@ -38,7 +38,12 @@ then
 	echo "[WARNING] Dirty flag found ! Might be insecure tarball"
 	echo "[USER] Redownload? Proceed? r|y|[n]"
 	read RESPONSE
-	
+
+	if [ -z $RESPONSE ]
+	then 
+		RESPONSE=n
+	fi
+
 	if [ ! $RESPONSE = "y" ]
 	then 
 		if [ $RESPONSE = "r" ]
@@ -53,6 +58,7 @@ then
 	fi
 fi
 
+echo "Going to install"
 exit 1
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
