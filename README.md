@@ -2,10 +2,10 @@
 
 u2l is a gentoo "distribution" aimed at providing a sysadmin tool thats
 
-1. already setup the way @askdonjohn and/or you wants
-2. easy to deploy
-3. selfupdating
-4. customizeable
+- [ ] already setup the way @askdonjohn and/or you wants
+- [x] easy to deploy
+- [ ] selfupdating
+- [x] customizeable
 
 ## Usage
 
