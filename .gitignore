@@ -1,6 +1,7 @@
 fstab.gen
 sets/own/*
 sets/custom/*
+sets/*/stages/*
 *.swp
 .*
 

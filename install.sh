@@ -29,9 +29,31 @@ fi
 if [ ! -e $USET/stages/stage3* ]
 then
 	echo "[WARNING] Can\'t find stage3 tarball, now downloading"
-	dl-stage.sh $USET/stages/stage3* || exit 1
+	./dl-stage.sh $USET/stages/ || exit 1
+	rm $USET/stages/.dirty
 fi
 
+if [ -e $USET/stages/.dirty ]
+then
+	echo "[WARNING] Dirty flag found ! Might be insecure tarball"
+	echo "[USER] Redownload? Proceed? r|y|[n]"
+	read RESPONSE
+	
+	if [ ! $RESPONSE = "y" ]
+	then 
+		if [ $RESPONSE = "r" ]
+		then
+			echo "[WARNING] Redownloading the tarball"
+			./dl-stage.sh $USET/stages/ || exit 1
+			rm $USET/stages/.dirty
+		else
+			echo "[ERROR] Dirty flag can not be ignored!"
+			exit 1
+		fi
+	fi
+fi
+
+exit 1
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
@@ -40,7 +62,7 @@ cp -f $USET/make.conf $TARGET/etc/portage/
 
 echo "[$0] EXTRACTING BASE SYSTEM"
 
-tar xpvf $USET/stage3* --xattrs-include='*.*' --numeric-owner -C $TARGET
+tar xpvf $USET/stages/stage3*.tar.xz --xattrs-include='*.*' --numeric-owner -C $TARGET
  
 echo "[$0] 1ST STAGE CONFIGURATION"
 
