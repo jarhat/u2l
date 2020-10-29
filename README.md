@@ -22,6 +22,15 @@
 	u2l is [atm] a script that installs gentoo with custom pkgs and 
 	basic configuration files.
 
+## TODO
+
+	- Autodownload latest stage3 if none present
+	- Config Patching
+	- Binary Package Distribution
+	- More sets
+	- Switching to ck kernel patches and/or custom [?]
+
+
 ## The Goal
 
 	A fully fledged gentoo distribution
