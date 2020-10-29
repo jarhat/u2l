@@ -11,7 +11,11 @@
 
 	1. Get a gentoo iso running on the target system
 	2. Get internet working on the live system
-	3. Run "git clone https://www.github.com/askdonjohn/u2l.git"
+	3. Create the disklayout and mount them as you would want them in the system under /mnt/gentoo while /mnt/gentoo is the root of the new system
+	4. Run "git clone https://www.github.com/askdonjohn/u2l.git"
+	5. Run "cd u2l"
+	6. Run "./install.sh"
+	7. Follow instuctions given by the installer
 
 ## The Start
 
