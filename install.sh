@@ -26,6 +26,12 @@ then
 	exit 1
 fi
 
+if [ ! -e $USET/stages/stage3* ]
+then
+	echo "[WARNING] Can\'t find stage3 tarball, now downloading"
+	dl-stage.sh $USET/stages/stage3* || exit 1
+fi
+
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
@@ -45,7 +51,7 @@ ntpd -q -g
 mkdir -p $TARGET/etc/portage/repos.conf
 cp $TARGET/usr/share/portage/config/repos.conf $TARGET/etc/portage/repos.conf/gentoo.conf
 
-./genfstab.sh $TARGET
+./gen-fstab.sh $TARGET
 cat fstab.gen >> $TARGET/etc/fstab
 
 echo "[$0] CHROOTING"
