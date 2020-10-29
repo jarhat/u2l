@@ -58,18 +58,16 @@ then
 	fi
 fi
 
-echo "Going to install"
-exit 1
+echo "[$0] EXTRACTING BASE SYSTEM"
+
+tar xpvf $USET/stages/stage3*.tar.xz --xattrs-include='*.*' --numeric-owner -C $TARGET
+ 
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
 cp $USET/pkg.lst $TARGET
 cp -f $USET/make.conf $TARGET/etc/portage/
 
-echo "[$0] EXTRACTING BASE SYSTEM"
-
-tar xpvf $USET/stages/stage3*.tar.xz --xattrs-include='*.*' --numeric-owner -C $TARGET
- 
 echo "[$0] 1ST STAGE CONFIGURATION"
 
 # Adjust System Clock [leaks ip]
