@@ -7,6 +7,12 @@
 	3. selfupdating
 	4. customizeable
 
+## Usage
+
+	1. Get a gentoo iso running on the target system
+	2. Get internet working on the live system
+	3. Run "git clone https://www.github.com/askdonjohn/u2l.git"
+
 ## The Start
 
 	u2l is [atm] a script that installs gentoo with custom pkgs and 
