@@ -17,7 +17,7 @@ echo "[$0] UPDATING AND CONFIGURING PORTAGE TREE & WORLD"
 cp -rf /overlay/etc/portage/* /etc/portage/
 
 emerge-webrsync
-emerge --usepkg y --ask --verbose --update --deep --newuse @world >> /install.log
+emerge --usepkg y --verbose --update --deep --newuse @world >> /install.log
 
 echo "[$0] 2ND STAGE CONFIGURATION"
 
@@ -34,7 +34,7 @@ echo "sys-kernel/linux-firmware linux-fw-redistributable no-source-code" >> /etc
 
 echo "[$0] INSTALLING SYSTEM PACKAGES"
 
-emerge $(cat pkg.lst | tr "\n" " ") >> /install.log
+emerge --usepkg y $(cat pkg.lst | tr "\n" " ") >> /install.log
 
 echo "[$0] COPYING CONFIGURATION"
 

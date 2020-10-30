@@ -1,5 +1,5 @@
 
-.PHONY: install weaponize disarm clean
+.PHONY: install usb weaponize disarm clean
 
 
 install: weaponize
