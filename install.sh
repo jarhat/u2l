@@ -66,7 +66,6 @@ echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
 cp $USET/pkg.lst $TARGET
-cp -f $USET/make.conf $TARGET/etc/portage/
 
 mkdir $TARGET/uetc
 cp -rf $USET/etc $TARGET/uetc/

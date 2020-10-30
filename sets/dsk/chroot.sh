@@ -12,7 +12,9 @@ echo "[$0] 2ND STAGE INSTALLER"
 
 source /etc/profile
 
-echo "[$0] UPDATING PORTAGE TREE & WORLD"
+echo "[$0] UPDATING AND CONFIGURING PORTAGE TREE & WORLD"
+
+cp -rf /uetc/portage/* /etc/portage/
 
 emerge-webrsync
 emerge --ask --verbose --update --deep --newuse @world >> /install.log
