@@ -85,7 +85,7 @@ tar xpvf $USET/stages/stage3*.tar.xz --xattrs-include='*.*' --numeric-owner -C $
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
-cp $USET/pkgs.lst $TARGET
+cp $USET/pkg.lst $TARGET
 
 mkdir $TARGET/overlay
 cp -rf $USET/overlay/* $TARGET/overlay
