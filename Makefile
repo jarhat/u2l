@@ -1,9 +1,18 @@
 
-.PHONY: install clean
+.PHONY: install weaponize disarm clean
 
-install: install.sh 
 
+install: weaponize
+	./install.sh
+
+weaponize:
+	chmod +x *.sh
+	chmod +x sets/*/*.sh
+
+disarm:
+	chmod -x *.sh
+	chmod -x sets/*/*.sh
 
 clean:
-	rm 
+	rm sets/*/stages/*
 
