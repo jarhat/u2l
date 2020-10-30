@@ -5,6 +5,7 @@
 # Assumes the Target is already mounted like in production
 
 TARGET=/mnt/gentoo
+BIN_IMPORT=pkg
 
 echo "[$0] U2L INSTALLER"
 
@@ -56,6 +57,25 @@ then
 			exit 1
 		fi
 	fi
+fi
+
+echo "[USER] Should we import binary pkgs? y|[n]"
+read RESPONSE
+
+if [ -z $RESPONSE ]
+then
+	RESPONSE=n
+fi
+
+if [ $RESPONSE = "y" ]
+then
+	echo "[USER] Importing from? [$BIN_IMPORT]"
+	read RESPONSE
+	if [ ! -z $RESPONSE ]
+	then
+		BIN_IMPORT=$RESPONSE
+	fi
+	./import-bin.sh $TARGET $BIN_IMPORT
 fi
 
 echo "[$0] EXTRACTING BASE SYSTEM"
