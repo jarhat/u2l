@@ -68,6 +68,9 @@ cp $USET/chroot.sh $TARGET
 cp $USET/pkg.lst $TARGET
 cp -f $USET/make.conf $TARGET/etc/portage/
 
+mkdir $TARGET/uetc
+cp -rf $USET/etc $TARGET/uetc/
+
 echo "[$0] 1ST STAGE CONFIGURATION"
 
 # Adjust System Clock [leaks ip]

@@ -34,6 +34,10 @@ echo "[$0] INSTALLING SYSTEM PACKAGES"
 
 emerge $(cat pkg.lst | tr "\n" " ") >> /install.log
 
+echo "[$0] COPYING CONFIGURATION"
+
+cp -rf /conf/* /etc/
+
 echo "[$0] KERNEL"
 
 genkernel all
