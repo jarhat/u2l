@@ -40,7 +40,7 @@ x11-terms/rxvt-unicode
 media-gfx/feh
 media-sound/cmus
 app-emulation/qemu
-www-clients/firefox
+www-client/firefox
 sys-power/acpi
 net-misc/youtube-dl
 
