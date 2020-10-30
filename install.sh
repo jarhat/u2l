@@ -67,8 +67,8 @@ echo "[$0] COPYING INSTALLER FILES TO DISK"
 cp $USET/chroot.sh $TARGET
 cp $USET/pkg.lst $TARGET
 
-mkdir $TARGET/uetc
-cp -rf $USET/etc $TARGET/uetc/
+mkdir $TARGET/overlay
+cp -rf $USET/overlay/* $TARGET/overlay
 
 echo "[$0] 1ST STAGE CONFIGURATION"
 

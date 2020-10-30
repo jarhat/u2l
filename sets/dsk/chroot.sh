@@ -14,7 +14,7 @@ source /etc/profile
 
 echo "[$0] UPDATING AND CONFIGURING PORTAGE TREE & WORLD"
 
-cp -rf /uetc/portage/* /etc/portage/
+cp -rf /overlay/etc/portage/* /etc/portage/
 
 emerge-webrsync
 emerge --ask --verbose --update --deep --newuse @world >> /install.log
@@ -38,7 +38,7 @@ emerge $(cat pkg.lst | tr "\n" " ") >> /install.log
 
 echo "[$0] COPYING CONFIGURATION"
 
-cp -rf /conf/* /etc/
+cp -rf /overlay/* /
 
 echo "[$0] KERNEL"
 

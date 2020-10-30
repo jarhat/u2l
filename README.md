@@ -25,7 +25,7 @@ basic configuration files.
 ## TODO
 
 - [x] Autodownload latest stage3 if none present
-- [ ] Config Patching
+- [x] Config Patching
 - [ ] Binary Package Distribution
 - [ ] More sets
 - [ ] Switching to ck kernel patches and/or custom [?]
