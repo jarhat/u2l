@@ -85,7 +85,7 @@ tar xpvf $USET/stages/stage3*.tar.xz --xattrs-include='*.*' --numeric-owner -C $
 echo "[$0] COPYING INSTALLER FILES TO DISK"
 
 cp $USET/chroot.sh $TARGET
-cp $USET/pkg.lst $TARGET
+cp $USET/pkgs.lst $TARGET
 
 mkdir $TARGET/overlay
 cp -rf $USET/overlay/* $TARGET/overlay
@@ -112,7 +112,7 @@ mount --make-rslave $TARGET/sys
 mount --rbind /dev $TARGET/dev
 mount --make-rslave $TARGET/dev 
 
-chroot $TARGET chroot.sh
+chroot $TARGET /chroot.sh
 
 echo "[$0] EXITING CHROOT"
 
