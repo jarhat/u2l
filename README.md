@@ -26,7 +26,7 @@ basic configuration files.
 
 - [x] Autodownload latest stage3 if none present
 - [x] Config Patching
-- [ ] Binary Package Distribution
+- [x] Binary Package Distribution
 - [ ] More sets
 - [ ] Switching to ck kernel patches and/or custom [?]
 

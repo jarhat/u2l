@@ -17,7 +17,7 @@ echo "[$0] UPDATING AND CONFIGURING PORTAGE TREE & WORLD"
 cp -rf /overlay/etc/portage/* /etc/portage/
 
 emerge-webrsync
-emerge --ask --verbose --update --deep --newuse @world >> /install.log
+emerge --usepkg y --ask --verbose --update --deep --newuse @world >> /install.log
 
 echo "[$0] 2ND STAGE CONFIGURATION"
 
